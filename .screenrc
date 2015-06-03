@@ -1,0 +1,26 @@
+startup_message off
+vbell off
+
+## Change the bar background color to darkblue.
+# %{= bd}
+## Write a [] around the screen windows.
+# [
+## Align the screen windows to the right.
+# %=
+## Display all the screen windows.
+# %-w
+## Change the color for the selected window to lightblue.
+# %{= BW}
+## Format the selected window. Draw the window number and window name between ||.
+# |%n %t|
+## Reset the bar background color to darkblue.
+# %{-}
+## Finishing command for displaying the screen windowns.
+# %+w
+## The screen windows will now allign in the center by repeating this command. (Notice the leading space!)
+#  %=
+## Write a [] around the screen windows.
+# ]
+## Write system time and seconds between []. This wil be aligned to the right.
+# [%c:%s]
+hardstatus alwayslastline "%{= bd}[%=%-w%{= BW}|%n %t|%{-}%+w %=][%c:%s]"

@@ -53,3 +53,10 @@ if [ "$response" == "y" ]; then
 	fi
 fi
 
+## Install Homebrew cask ##
+echo "Install Homebrew Cask? (y/N)"
+read -r response
+if [ "$response" == "y" ]; then
+	# https://github.com/caskroom/homebrew-cask
+	brew install caskroom/cask/brew-cask
+fi

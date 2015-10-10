@@ -60,3 +60,11 @@ if [ "$response" == "y" ]; then
 	# https://github.com/caskroom/homebrew-cask
 	brew install caskroom/cask/brew-cask
 fi
+
+## Get vim config ##
+echo "Get my vim config? (y/N)"
+read -r response
+if [ "$response" == "y" ]; then
+	curl -L https://raw.githubusercontent.com/marcelverweij/dotfiles/master/.vimrc >>  ~/.vimrc
+fi
+

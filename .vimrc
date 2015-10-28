@@ -1,32 +1,49 @@
-set nocompatible				" Get out of VI-compatible mode.
-set noswapfile					" Disable creation of '.swp'.
-set cm=blowfish					" Set the cryptmethod to blowfish.
+" GLOBAL SETTINGS
+set nocompatible	" Get out of VI-compatible mode (must be first option in .vimrc for correct working)
 
-set incsearch					" Begin searching as soon as you start typing.
-set hlsearch					" Highlight search pattern matches.
 
-set guioptions-=T				" Remove toolbar.
-set guioptions-=r				" Remove right-hand scroll bar.
+" VIM BEHAVIOUR
+set noswapfile		" Disable the creation of '.swp'
+set nobackup		" Disable the creation of '~' backup files
+set guioptions-=T	" Remove toolbar
+set guioptions-=r	" Remove right-hand scroll bar
+set cm=blowfish		" Set the cryptmethod to blowfish
 
-colorscheme desert				" Set colorscheme.
-syntax on					" Enable syntax highlighting.
-set relativenumber				" Display relative line numbers.
-set ruler					" Always display cursor.
-set laststatus=2				" Always display statusbar.
-let g:buftabs_only_basename=1			" Don't display full file paths for buffers.
+" VIM LAYOUT
+set laststatus=2		" Always display statusbar.
+set statusline=%F		"Full path and filename
+set statusline+=%m		"Modified flag
+set statusline+=%r		"Read-only flag
+set statusline+=\ -%p%%-	"Percent through file
+set statusline+=\ %c,		"Cursor column
+set statusline+=%l/%L		"Cursor line/total lines
+set statusline+=%=		"Seperator left/right
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}]	"File encoding
+set statusline+=[%{&ff}]	"File format
+set statusline+=%y		"Filetype
+set statusline+=%h		"Help file flag
 
-set tabstop=8					" Set the length of a tab in a file with tabs.
-set shiftwidth=8				" Insert number of spaces when we hit the tab key.
-set softtabstop=8				" Delete number of spaces when we hit the backspace key on a tab.
-set autoindent					" Go to the indent of the last line.
 
-" Display tabs and trailing spaces.
-set list
-set listchars=tab:»\ ,trail:¬
+" EDITOR BEHAVIOUR
+set tabstop=8		" Set the length in spaces of tabs
+set shiftwidth=8	" Set how much spaces to insert when adding a tab
+set softtabstop=8	" Set how much spaces to delete when deleting a tab
+set autoindent		" Go to the indent of the last line
+set autoread		" Automatically reload files changed outside of Vim
+set incsearch		" Begin searching as soon as you start typing
+set hlsearch		" Highlight search pattern matches
 
-" Custom statusline.
-set statusline=\ %f%m%r%h%w\ %=%([%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y]%)\ %([%l\/%L\|%c][%p%%]\ %)
+" EDITOR LAYOUT
+syntax on		" Set syntax highlighting
+colorscheme desert
+set relativenumber	" Display relative line numbers
+set ruler		" Always display cursor
+set list		" Display tabs and trailing spaces
+set listchars=tab:Â»\ ,trail:Â¬
+set wrap		" Enable visual wrapping of lines
 
-" CTRL-c CTRL-v
+
+" MACROS
+" Bind CTRL-c and CTRL-v to copy and paste
 map <C-c> "+y<CR>
 map <C-v> "+gP<CR>

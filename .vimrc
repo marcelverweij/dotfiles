@@ -29,6 +29,7 @@ set tabstop=8		" Set the length in spaces of tabs
 set shiftwidth=8	" Set how much spaces to insert when adding a tab
 set softtabstop=8	" Set how much spaces to delete when deleting a tab
 set autoindent		" Go to the indent of the last line
+set backspace=indent,eol,start " Influences the working of backspace, overwriting autointent feature of VIM 
 set autoread		" Automatically reload files changed outside of Vim
 set incsearch		" Begin searching as soon as you start typing
 set hlsearch		" Highlight search pattern matches
